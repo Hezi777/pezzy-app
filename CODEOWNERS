@@ -1,0 +1,22 @@
+# Code ownership — auto-requests the right reviewer on each PR.
+# Split is AI vs. everything else (see docs/ARCHITECTURE.md#ownership-map).
+# Last match wins, so order matters: default first, specifics below.
+
+# Default: Hen owns the full stack (frontend + non-AI backend).
+*                               @Hezi777
+
+# --- Perry: the AI layer ---
+# AI design doc is entirely Perry's.
+/docs/AI-ARCHITECTURE.md        @perrys21
+
+# AI code should be extracted into its own module as it lands (keeps the
+# model calls out of Hen's routes/rec-core). Reserved for Perry:
+/src/lib/ai/                    @perrys21
+
+# --- The AI boundary: co-owned, both review ---
+# These files are Hen's plumbing wrapping Perry's TODO(llm) seams. Until the
+# AI code is extracted, changes here should ping both owners.
+/src/lib/reco/                  @Hezi777 @perrys21
+/src/app/api/chat/              @Hezi777 @perrys21
+/src/app/api/avatar/            @Hezi777 @perrys21
+/src/app/api/subtitles/         @Hezi777 @perrys21

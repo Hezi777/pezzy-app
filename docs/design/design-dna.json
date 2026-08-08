@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "name": "Pezzy Design DNA",
+    "description": "AI-native anime streaming platform. Cinematic dark UI in the HBO Max lineage — deep navy-to-black, spotlight-lit heroes, vertical poster cards — with an AI/anime signature layer: immersive WebGL hero, selfie-to-avatar 3D reveal, playful staggered card motion on recommendation rows, and a black-on-black anime-glyph profile backdrop.",
+    "source_references": [
+      "HBO Max home (primary vibe: navy-black, centered nav, spotlight hero) — liked",
+      "Paramount+ home (vertical cards, 'Your Next Watch' rows)",
+      "Netflix home (row/catalog information architecture)",
+      "HBO Max 'Who's Watching?' (radial-vignette profile screen)",
+      "Diagonal capsule pattern (density/scale reference for profile backdrop — smaller & subtler than this)"
+    ],
+    "created_at": "2026-07-16"
+  },
+
+  "design_system": {
+    "color": {
+      "palette_type": "analogous-cool with a warm accent",
+      "primary": { "hex": "#26356B", "role": "brand navy / primary CTA, focus rings, active nav — the HBO navy lineage" },
+      "secondary": { "hex": "#3E5CC4", "role": "steel-blue accent — CTA edges, focus, hover glow; used consistently across chat, 'talk to your homepage', and generative affordances rather than a separate cyan" },
+      "accent": { "hex": "#FF5FA2", "role": "anime energy pink — sparingly on badges (NEW EPISODE), highlights, secondary glow in gradients" },
+      "neutral": {
+        "scale": ["#05060A", "#0A0B12", "#111320", "#1A1D2B", "#272B3D", "#3A3F57", "#6B7192", "#9AA0BE", "#C7CBE0", "#EEF0FA"],
+        "usage": "Darkest two are page/base backgrounds; mid values are card and elevated surfaces; #9AA0BE is muted/secondary text; #EEF0FA is primary text (never pure white on pure black)."
+      },
+      "semantic": {
+        "success": "#3DDC97",
+        "warning": "#FFB020",
+        "error": "#FF5A5F",
+        "info": "#5B74C4"
+      },
+      "surface": {
+        "background": "#05060A",
+        "card": "#111320",
+        "elevated": "#1A1D2B"
+      },
+      "contrast_strategy": "Deep near-black base with content (posters, key art) as the brightest thing on screen. UI chrome stays low-contrast and recedes; accents glow rather than fill. Text uses off-white #EEF0FA to avoid harsh pure-white-on-black shimmer."
+    },
+
+    "typography": {
+      "type_scale": {
+        "display":    { "size": "clamp(2.75rem, 6vw, 5rem)", "weight": 700, "line_height": 1.02, "tracking": "-0.02em" },
+        "heading_1":  { "size": "clamp(2rem, 4vw, 3rem)",    "weight": 700, "line_height": 1.08, "tracking": "-0.015em" },
+        "heading_2":  { "size": "1.5rem",   "weight": 600, "line_height": 1.15, "tracking": "-0.01em" },
+        "heading_3":  { "size": "1.125rem", "weight": 600, "line_height": 1.25, "tracking": "0" },
+        "body":       { "size": "1rem",     "weight": 400, "line_height": 1.55, "tracking": "0" },
+        "body_small": { "size": "0.875rem", "weight": 400, "line_height": 1.5,  "tracking": "0" },
+        "caption":    { "size": "0.75rem",  "weight": 500, "line_height": 1.4,  "tracking": "0.01em" },
+        "overline":   { "size": "0.6875rem","weight": 600, "line_height": 1.3,  "tracking": "0.14em" }
+      },
+      "font_families": {
+        "heading": "Fraunces (variable serif, editorial display) — fallback: Georgia, serif",
+        "body": "Satoshi — fallback: system-ui, -apple-system, sans-serif",
+        "hebrew": "Assistant — fallback: Arial, sans-serif",
+        "mono": "Geist Mono, ui-monospace, monospace"
+      },
+      "font_style_notes": "An editorial serif (Fraunces) carries hero titles and section headings — tight tracking, confident weight, a warmer counterpoint to the navy-steel palette — paired with Satoshi for Latin body copy and UI and Assistant for Hebrew. Overline used in ALL-CAPS for row labels and eyebrow tags ('YOUR NEXT WATCH', 'RECOMMENDED FOR YOU'). Streaming apps lean on the poster art for personality, so type stays disciplined."
+    },
+
+    "spacing": {
+      "base_unit": "4px",
+      "scale": [4, 8, 12, 16, 24, 32, 48, 64, 96, 128],
+      "content_density": "comfortable — generous around the hero, tighter within card rows",
+      "section_rhythm": "Large gap (64–96px) below the hero; consistent 40–48px vertical rhythm between content rows; 12–16px gutters between cards inside a row."
+    },
+
+    "layout": {
+      "grid_system": "Full-bleed hero + horizontally-scrolling card rails. Rails overflow the right edge (peek of next card) to signal scrollability, HBO/Paramount style.",
+      "max_content_width": "none for hero (full-bleed); rows extend edge-to-edge with left padding aligned to content start (~4–6vw)",
+      "columns": "Fluid — ~6 vertical cards visible at 1440px, responsive down to ~2.5 on mobile",
+      "gutter": "12–16px between cards",
+      "breakpoints": { "sm": "640px", "md": "768px", "lg": "1024px", "xl": "1280px", "2xl": "1536px" },
+      "alignment_tendency": "centered top nav (HBO Max), left-aligned hero copy, left-aligned row labels"
+    },
+
+    "shape": {
+      "border_radius": { "small": "6px", "medium": "10px", "large": "16px", "pill": "9999px" },
+      "border_usage": "none by default; a 1px translucent white border (rgba(255,255,255,0.08)) appears on hover/focus of cards and on glass surfaces",
+      "divider_style": "avoid hard rules; separate sections with spacing and subtle background-value shifts"
+    },
+
+    "elevation": {
+      "shadow_style": "soft diffused + colored glow on interactive/accent elements",
+      "levels": {
+        "low": "0 2px 8px rgba(0,0,0,0.4)",
+        "medium": "0 8px 24px rgba(0,0,0,0.55)",
+        "high": "0 20px 60px rgba(0,0,0,0.65), plus optional accent glow e.g. 0 0 40px rgba(124,92,255,0.25)"
+      },
+      "depth_cues": "color intensity + blur/glass + spotlight glow behind hero art (not literal drop shadows on flat UI)"
+    },
+
+    "iconography": {
+      "style": "rounded-line, consistent 2px stroke, minimal fills",
+      "stroke_weight": "2px (1.5px at small sizes)",
+      "size_scale": ["16px", "20px", "24px", "32px"],
+      "preferred_set": "Lucide (or Phosphor) for UI; custom anime-glyph set for the profile backdrop only"
+    },
+
+    "motion": {
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1) (easeOutExpo-ish) for entrances; cubic-bezier(0.4, 0, 0.2, 1) for standard transitions",
+      "duration_scale": { "micro": "120ms", "normal": "280ms", "macro": "600ms" },
+      "entrance_pattern": "fade + slight upward translate (16–24px) with per-item stagger on rows; scale-from-0.94 for cards",
+      "exit_pattern": "quick fade + slight scale-down, faster than entrance (~160ms)",
+      "philosophy": "cinematic and intentional — motion reinforces the AI 'your homepage is composing itself for you' story. Playful on card reveals, calm everywhere else. Respect prefers-reduced-motion."
+    },
+
+    "components": {
+      "button_style": "Primary: solid violet #7C5CFF, pill or 10px radius, medium weight label, subtle glow on hover. Secondary: frosted-glass (blur + rgba(255,255,255,0.1)) like HBO's 'MORE INFO'. Play button often a circular icon button.",
+      "input_style": "dark filled #111320, 10px radius, inner 1px translucent border, steel-blue focus ring",
+      "card_style": "Vertical poster (2:3), 10px radius, no chrome at rest; on hover: scale ~1.06, lift, 1px translucent border, reveal title/meta/quick-actions overlay from bottom gradient",
+      "navigation_pattern": "centered horizontal top nav, logo center or left, search + profile right; becomes translucent-glass on scroll, transparent over hero at top",
+      "modal_style": "centered, frosted-glass backdrop (blur + dim), 16px radius, content-detail modals slide/scale in",
+      "list_style": "horizontal scroll rails with an eyebrow/overline label; personalized rows carry a thin navy accent bar beside the label instead of a badge",
+      "component_notes": "Signature element: personalized rows get a small navy accent bar and animate their cards in with a stagger when they enter viewport or when the row is (re)generated by the recommendation engine."
+    }
+  },
+
+  "design_style": {
+    "aesthetic": {
+      "mood": ["cinematic", "premium", "immersive", "energetic-but-controlled", "nocturnal"],
+      "visual_metaphor": "a dark theater where the screen (content) is the only light source — plus a faint neon pulse of anime culture underneath",
+      "era_influence": "modern streaming (2024+ HBO Max) crossed with neo-Tokyo neon accents",
+      "genre": "premium entertainment streaming with an anime/AI-native twist",
+      "personality_traits": ["confident", "curated", "attentive (knows you)", "playful in small doses"],
+      "adjectives": ["sleek", "deep", "glowing", "responsive", "tasteful"]
+    },
+    "visual_language": {
+      "complexity": "minimal chrome, rich content",
+      "ornamentation": "subtle accents — glows, the anime-glyph backdrop, AI chips; no heavy decoration",
+      "whitespace_usage": "generous negative space (pure black) as a design element; lets posters and glows breathe",
+      "visual_weight_distribution": "content-forward — key art dominates, UI recedes",
+      "focal_strategy": "single hero focal point per screen, then progressive reveal down the rails",
+      "contrast_level": "high between content and background, low within UI chrome",
+      "texture_usage": "near-none on flat UI; textured only in the WebGL hero and the profile glyph backdrop"
+    },
+    "composition": {
+      "hierarchy_method": "scale contrast + luminance (bright content on dark) + spatial isolation of the hero",
+      "balance_type": "asymmetric (left-weighted hero copy, right-weighted key art)",
+      "flow_direction": "top-down then left-to-right through horizontal rails",
+      "grouping_strategy": "labeled horizontal rails, each a themed/personalized cluster",
+      "negative_space_role": "primary — the black is the stage, not empty space to fill"
+    },
+    "imagery": {
+      "photo_treatment": "full-bleed cinematic key art with a spotlight glow behind the subject and a bottom/left gradient scrim for text legibility",
+      "illustration_style": "flat line anime glyphs for the profile backdrop; AI-generated stylized anime avatars for profiles",
+      "graphic_elements": "soft radial glows, gradient scrims, subtle grain, neon edge lighting",
+      "pattern_usage": "black-on-black anime-glyph tile on the profile/auth screens, center-out fade",
+      "image_shape": "vertical 2:3 poster cards; full-bleed 16:9 hero"
+    },
+    "interaction_feel": {
+      "feedback_style": "immediate, tactile — cards respond on hover with scale+glow, buttons press and glow",
+      "hover_behavior": "poster scales up ~1.06, lifts, reveals title/meta/quick-actions; neighbors optionally ease aside slightly",
+      "transition_personality": "smooth glide with a confident ease-out; card row reveals are playful/staggered",
+      "loading_style": "shimmer skeletons in surface tones; AI generations show a cyan pulsing state ('composing your row…')",
+      "microinteraction_density": "moderate — concentrated on cards, CTAs, and AI moments; calm elsewhere"
+    },
+    "brand_voice_in_ui": {
+      "tone": "warm, personal, in-the-know — it talks like it actually knows your taste",
+      "formality": "casual-confident",
+      "cta_style": "direct + inviting ('Play', 'Ask Pezzy', 'Make me a row about…')",
+      "empty_state_approach": "conversational and generative — offers to build/recommend rather than showing a dead end",
+      "error_tone": "calm, human, never blames the user"
+    }
+  },
+
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "moderate overall, heavy-immersive on hero and avatar reveal",
+      "performance_tier": "heavy (WebGL/Three.js) for hero + avatar; medium/lightweight (CSS/Framer Motion) everywhere else",
+      "fallback_strategy": "reduce to CSS/static: WebGL hero falls back to a static key-art image + CSS glow; disable particle/scroll effects under prefers-reduced-motion or on low-end devices",
+      "primary_technology": "React Three Fiber (Three.js) for 3D; Framer Motion for UI motion; CSS/SVG for the profile backdrop"
+    },
+
+    "background_effects": {
+      "type": "mesh-gradient + soft spotlight glow behind hero key art",
+      "description": "Deep navy-black base with a large soft radial glow (violet→cyan, low opacity) positioned behind the hero subject, subtly drifting. Optional very-low-opacity animated grain over the whole page.",
+      "technology": "CSS radial-gradients + optional WebGL for the drifting mesh in the hero",
+      "params": {
+        "color_palette": ["#05060A", "#1A1D2B", "#7C5CFF", "#22D3EE"],
+        "speed": "very slow (20–40s loop)",
+        "density": "sparse — one or two glow sources",
+        "opacity": "0.15–0.30 for glows",
+        "blend_mode": "screen / lighten"
+      }
+    },
+
+    "particle_systems": {
+      "enabled": true,
+      "type": "fireflies",
+      "description": "Optional sparse drifting light motes in the hero depth to add life without distraction. Off on reduced-motion.",
+      "technology": "React Three Fiber points, or lightweight Canvas 2D fallback",
+      "params": {
+        "count": "40–80",
+        "shape": "soft circular glow",
+        "size_range": "1–3px",
+        "movement_pattern": "slow upward drift with gentle noise",
+        "color_behavior": "violet/cyan, low opacity, subtle twinkle",
+        "interaction": "mouse-parallax (very subtle)",
+        "spawn_area": "hero viewport only"
+      }
+    },
+
+    "3d_elements": {
+      "enabled": true,
+      "type": "hero-scene-bg + avatar-reveal",
+      "description": "TWO signature 3D moments. (1) HERO: an immersive WebGL scene behind the featured title — parallax depth, drifting glow, subtle camera sway responding to cursor; key art composited in front. (2) AVATAR REVEAL: the selfie-to-anime-avatar result reveals with a 3D card/portal — a glowing ring, depth, and a cyan bloom as the generated avatar materializes and can be rotated/tilted.",
+      "technology": "React Three Fiber + drei, postprocessing (bloom)",
+      "params": {
+        "renderer": "WebGL (Three.js via R3F), dpr-capped for perf",
+        "lighting": "low-key with a violet key light and cyan rim light",
+        "camera": "subtle mouse-parallax sway; shallow FOV for cinematic depth",
+        "materials": "physically-lit for avatar, emissive glows for accents",
+        "geometry": "avatar plane/portal ring + depth layers; hero uses layered planes/parallax",
+        "post_processing": ["bloom", "vignette", "subtle chromatic-aberration on reveal"],
+        "interaction_model": "cursor-parallax on hero; drag-to-rotate/tilt on avatar reveal"
+      }
+    },
+
+    "shader_effects": {
+      "enabled": true,
+      "type": "color-shift / dissolve on avatar reveal",
+      "description": "A dissolve/materialize shader for the avatar generation ('developing' from noise into the finished anime portrait), plus optional subtle animated gradient in the hero glow.",
+      "technology": "custom GLSL in R3F",
+      "params": {
+        "uniforms": ["uTime", "uProgress", "uColorA (#7C5CFF)", "uColorB (#22D3EE)"],
+        "vertex_manipulation": "minimal (flat planes)",
+        "fragment_output": "noise-driven reveal mask + emissive edge glow at the dissolve boundary",
+        "noise_type": "simplex",
+        "distortion": "slight along the reveal edge"
+      }
+    },
+
+    "scroll_effects": {
+      "parallax": {
+        "enabled": true,
+        "layers": "2–3 (hero art foreground, glow mid, background)",
+        "depth_range": "subtle — hero only, a few % translate",
+        "speed_curve": "eased, tied to scroll position"
+      },
+      "scroll_triggered_animations": {
+        "enabled": true,
+        "trigger_points": "each content rail as it enters viewport (~top 85%)",
+        "animation_type": "staggered scale-in + fade-up of cards (THE signature row reveal)",
+        "scrub_behavior": "play-once on enter (not scrubbed), so it feels like the row 'composes itself'"
+      },
+      "scroll_morphing": {
+        "enabled": false,
+        "description": "not used — keep scroll behavior legible for a content browse experience"
+      }
+    },
+
+    "text_effects": {
+      "type": "gradient-fill + fade-up on hero title",
+      "description": "Hero/feature titles fade-up with slight tracking-in; optional violet→cyan gradient fill on key headings and the Pezzy wordmark. Row labels are static.",
+      "technology": "Framer Motion + CSS background-clip:text",
+      "params": {
+        "split_strategy": "by-word (hero title only)",
+        "animation_per_unit": "fade + translateY",
+        "stagger": "40–60ms per word",
+        "effect_style": "subtle, cinematic — no glitch/typewriter"
+      }
+    },
+
+    "cursor_effects": {
+      "enabled": true,
+      "type": "magnetic-buttons",
+      "description": "Primary CTAs and card quick-actions have a subtle magnetic pull toward the cursor. No global custom cursor (keeps a familiar streaming feel).",
+      "params": {
+        "shape": "n/a (native cursor kept)",
+        "size": "n/a",
+        "blend_mode": "n/a",
+        "trail": "none",
+        "interaction_zone": "primary CTAs, play buttons, avatar tiles"
+      }
+    },
+
+    "image_effects": {
+      "type": "hover reveal + parallax-tilt on poster cards",
+      "description": "Poster cards scale/lift on hover, reveal a bottom-gradient info overlay, and get a very slight 3D tilt toward the cursor. Optional subtle rgb-shift/glow edge on focus for a premium feel.",
+      "technology": "Framer Motion (transform) + CSS gradients",
+      "params": {
+        "filter_pipeline": "slight brightness up on hover, neighbors slightly dim",
+        "hover_transform": "scale 1.06, translateY -6px, rotateX/Y up to ~4deg toward cursor",
+        "reveal_animation": "info overlay fades/slides up from bottom scrim",
+        "distortion_type": "none (tilt only)"
+      }
+    },
+
+    "glassmorphism_neumorphism": {
+      "enabled": true,
+      "style": "frosted-glass",
+      "description": "Nav bar on scroll, secondary buttons ('More Info'), and detail modals use frosted glass over the dark base — matches HBO Max's translucent chrome.",
+      "params": {
+        "blur_radius": "16–24px",
+        "transparency": "rgba(255,255,255,0.06–0.12) fill",
+        "border_treatment": "1px rgba(255,255,255,0.10) top/left highlight",
+        "shadow_type": "soft ambient",
+        "light_source_angle": "top"
+      }
+    },
+
+    "canvas_drawings": {
+      "enabled": true,
+      "type": "pattern-fill (anime-glyph profile backdrop)",
+      "description": "The profile/auth screen backdrop: a tiled field of small black-on-black anime-culture glyphs (shuriken, torii, onigiri, sword, ramen bowl, manga sparkle, speed-lines, sound-effect katakana), spaced like image #5 but MUCH smaller and lower-contrast, with a center-out radial fade (visible near center, dissolving to pure #05060A at edges) so it never competes with the avatars. Can be a static tiled SVG with a radial-gradient mask, or a Canvas/WebGL version with a faint slow shimmer on a few glyphs.",
+      "technology": "SVG <pattern> + CSS radial mask (default); optional Canvas 2D for subtle shimmer",
+      "params": {
+        "draw_method": "repeating glyph tile",
+        "animation_loop": "optional — a few glyphs faintly twinkle (very slow); static is fine",
+        "color_scheme": "glyphs in #0F1118 → #1A1D2B (barely above #05060A base), highlights rarely up to #272B3D",
+        "responsiveness": "tile scales with viewport; mask always centers on the avatar cluster",
+        "interaction": "none (or ultra-subtle parallax on pointer)"
+      }
+    },
+
+    "svg_animations": {
+      "enabled": true,
+      "type": "logo-reveal + decorative-loop",
+      "description": "Pezzy wordmark/mark can path-draw on first load or auth; AI 'thinking' states use a small looping SVG pulse in cyan.",
+      "params": {
+        "animation_method": "stroke-dashoffset draw + CSS",
+        "path_morphing": "none",
+        "stroke_animation": "draw-in on mount",
+        "filter_effects": "soft cyan glow on AI states"
+      }
+    },
+
+    "composite_notes": "Effect budget is deliberately front-loaded: the WebGL hero and the avatar-reveal are the two 'wow' moments and justify Three.js; everything in the browse experience (rows, cards, nav, modals) is Framer Motion + CSS so it stays 60fps and cheap. The signature interaction is the staggered card reveal on recommendation rails — it should read as 'the AI is composing this row for you,' reinforced by a cyan AI chip on personalized rows. The profile-screen glyph backdrop is the brand's quiet anime signature: present, ownable, but subordinate to the avatars via the center-out fade. All heavy effects degrade to static/CSS under prefers-reduced-motion and on low-end devices."
+  }
+}

@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/Satoshi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/Satoshi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+  Pezzy Design DNA tokens — see docs/design/design-dna.json
+  Dark-first: the base IS the dark theme (a cinematic near-black stage).
+*/
+:root {
+  /* Surfaces */
+  --background: #05060a;
+  --card: #111320;
+  --elevated: #1a1d2b;
+
+  /* Text */
+  --foreground: #eef0fa;
+  --muted: #1a1d2b;
+  --muted-foreground: #9aa0be;
+
+  /* Accents — cobalt-led. Vibrant cobalt fill with a lighter cobalt edge +
+     soft glow for legibility on near-black. */
+  --primary: #3D5AFE;            /* cobalt CTA fill — buttons, active states */
+  --primary-foreground: #ffffff;
+  --primary-hover: #5570FF;      /* lighter cobalt — hover on dark */
+  --steel: #5570FF;              /* lighter cobalt — CTA edges, focus, hover glow */
+  --secondary: #2F4AD6;          /* deeper cobalt — subtle accents */
+  --accent: #ff5fa2;             /* anime pink — very sparing */
+  --accent-blue-text: #8EA2FF;   /* light cobalt — inline accent text on near-black */
+
+  /* Utility */
+  --ring: #3D5AFE;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-elevated: var(--elevated);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-steel: var(--steel);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-blue-text: var(--accent-blue-text);
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+
+  --font-sans: "Satoshi", system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-display: "Satoshi", system-ui, sans-serif;
+  --font-wordmark: "Satoshi", system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+:lang(he) {
+  font-family: var(--font-hebrew), Arial, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
